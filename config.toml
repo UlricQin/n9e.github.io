@@ -42,7 +42,25 @@ publishDir = "docs"
     weight = 10
 
  [[Languages.en.menu.shortcuts]]
-   name = "<i class='fas fa-fw fa-book'></i> 视频教程"
+   name = "<i class='fas fa-fw fa-book'></i> 入门视频教程"
    identifier = "video"
    url = "https://space.bilibili.com/442531657/channel/seriesdetail?sid=571645"
    weight = 20
+
+ [[Languages.en.menu.shortcuts]]
+   name = "<i class='fas fa-fw fa-book'></i> Linux进阶知识"
+   identifier = "51cto"
+   url = "https://edu.51cto.com/course/31049.html"
+   weight = 25
+
+ [[Languages.en.menu.shortcuts]]
+   name = "<i class='fas fa-fw fa-link'></i> 经验分享"
+   identifier = "usecase"
+   url = "https://github.com/ccfos/nightingale/wiki/usecase"
+   weight = 30
+
+ [[Languages.en.menu.shortcuts]]
+   name = "<i class='fas fa-fw fa-question'></i> FAQ"
+   identifier = "faq"
+   url = "https://github.com/ccfos/nightingale/wiki/faq"
+   weight = 40
