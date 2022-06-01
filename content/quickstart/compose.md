@@ -7,8 +7,6 @@ weight: 1
 
 从[Github](https://github.com/didi/nightingale)下载夜莺的源码，进入docker目录，执行`docker-compose up -d`即可，docker-compose会自动拉取镜像并启动，查看各个容器启动状态，使用命令`docker-compose ps`，都是Up状态则表示启动成功。
 
-如果ibex、nserver、nwebapi等模块一直在Restarting，可能是数据库容器启动太慢了没有准备好，可以执行`docker-compose down`停掉再重新尝试启动测试，这个问题受限于个人知识水平一直不知道如何解决，如果有对 docker-compose 机制熟悉的小伙伴可以赐教下，怎么保证各个容器的启动顺序，要求 MySQL 进程启动之后，其他的进程才启动。
-
 ```bash
 $ git clone https://github.com/didi/nightingale.git
 $ cd nightingale/docker
