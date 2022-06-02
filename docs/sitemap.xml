@@ -46,6 +46,9 @@
     <loc>https://n9e.github.io/api/opentsdb/</loc>
   </url>
   <url>
+    <loc>https://n9e.github.io/api/falcon/</loc>
+  </url>
+  <url>
     <loc>https://n9e.github.io/quickstart/compile/</loc>
   </url>
   <url>

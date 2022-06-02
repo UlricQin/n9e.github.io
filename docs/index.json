@@ -105,6 +105,13 @@
     "uri": "/api/opentsdb/"
   },
   {
+    "content": "调用 n9e-server 的 /openfalcon/push 接口，POST 方法，该接口实现了 Open-Falcon 的数据接收协议，监控数据做成 JSON 放到 HTTP Request Body 中，举例：\n[ { \"endpoint\": \"c3-ceph01.bj\", \"metric\": \"cpu_usage_idle\", \"timestamp\": 1637732157, \"tags\": \"cpu=cpu-total,region=ali\", \"value\": 30.5 }, { \"endpoint\": \"c3-ceph01.bj\", \"metric\": \"cpu_usage_util\", \"timestamp\": 1637732157, \"tags\": \"cpu=cpu-total,region=ali\", \"value\": 69.5 } ] 显然，JSON 最外层是个数组，如果只上报一条监控数据，也可以不要外面的中括号，直接把对象结构上报：\n{ \"endpoint\": \"c3-ceph01.bj\", \"metric\": \"cpu_usage_idle\", \"timestamp\": 1637732157, \"tags\": \"cpu=cpu-total,region=ali\", \"value\": 30.5 } 服务端会看第一个字符是否是[，来判断上报的是数组，还是单个对象，自动做相应的 Decode。如果觉得上报的内容太过占用带宽，也可以做 gzip 压缩，此时上报的数据，要带有Content-Encoding: gzip的 Header。\nInfo夜莺中有个监控对象（通常表示设备）的概念，n9e-server 会把 endpoint 字段当做监控对象看待，会自动获取 endpoint 的 value，注册到监控对象的列表里\n ",
+    "description": "",
+    "tags": null,
+    "title": "推送监控数据（OpenFalcon协议）",
+    "uri": "/api/falcon/"
+  },
+  {
     "content": " 本节讲述 Nightingale 的源码编译方式，分前后端两部分。另外，如果用到告警自愈模块，会用到 ibex 这个模块，本节也会一并讲解 ibex 模块的编译方法。对于 ARM 的处理器，我们没有提供编译好的二进制，大家就要用下面的方法自行编译了。\n 前端 git clone https://github.com/n9e/fe-v5.git cd fe-v5 npm install npm run build 后端 Nightingale 后端采用 Go 语言编写，编译的前置条件就是配置 Go 的开发环境。\n配置Go环境 到Go官网选择对应的版本下载，我的环境是Linux，选择的go1.17.3.linux-amd64.tar.gz，直接下载到/root目录下了，然后解压缩，即Go的内容都放到了/root/go目录下了。同时准备gopath目录，如下：\ncd /root \u0026\u0026 mkdir -p gopath/src echo \"GOROOT=/root/go\" \u003e\u003e .bash_profile echo \"GOPATH=/root/gopath\" \u003e\u003e .bash_profile echo 'export PATH=$GOROOT/bin:$GOPATH/bin:$PATH' \u003e\u003e .bash_profile source .bash_profile 编译n9e git clone https://github.com/didi/nightingale.git # 国内配置一下代理，可以加速编译 export GOPROXY=https://goproxy.cn # 执行编译 cd nightingale \u0026\u0026 make 编译完成之后如果生成二进制：n9e，就表示编译成功！想要快速入门Go语言？可以参考GOCN的资料！\n编译ibex 如果需要告警自愈能力，夜莺依赖ibex做命令下发执行，ibex的编译和n9e几乎一模一样，如下：\ngit clone https://gitee.com/cnperl/ibex.git # 国内配置一下代理，可以加速编译 export GOPROXY=https://goproxy.cn # 执行编译 cd ibex \u0026\u0026 make 编译完成之后如果生成二进制：ibex，就表示编译成功！\n",
     "description": "",
     "tags": null,

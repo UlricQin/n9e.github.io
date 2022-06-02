@@ -6,24 +6,24 @@
     <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Documentation for nightingale">
     
-    <title>监控Windows :: N9E</title>
-    <link href="/css/nucleus.css?1654133685" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1654133685" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1654133685" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1654133685" rel="stylesheet">
-    <link href="/css/auto-complete.css?1654133685" rel="stylesheet">
-    <link href="/css/theme.css?1654133685" rel="stylesheet">
-    <link href="/css/theme-blue.css?1654133685" rel="stylesheet">
-    <link href="/css/variant.css?1654133685" rel="stylesheet">
-    <link href="/css/print.css?1654133685" rel="stylesheet" media="print">
-    <script src="/js/jquery.min.js?1654133685"></script>
+    <title>推送监控数据（OpenFalcon协议） :: N9E</title>
+    <link href="/css/nucleus.css?1654133684" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1654133684" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1654133684" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1654133684" rel="stylesheet">
+    <link href="/css/auto-complete.css?1654133684" rel="stylesheet">
+    <link href="/css/theme.css?1654133684" rel="stylesheet">
+    <link href="/css/theme-blue.css?1654133684" rel="stylesheet">
+    <link href="/css/variant.css?1654133684" rel="stylesheet">
+    <link href="/css/print.css?1654133684" rel="stylesheet" media="print">
+    <script src="/js/jquery.min.js?1654133684"></script>
     <style>
       :root #header + #content > #left > #rlblock_left{
         display:none !important;
       }
     </style>
   </head>
-  <body class="" data-url="/usage/windows/">
+  <body class="" data-url="/api/falcon/">
     <script>
       var index_url="/index.json";
       var root_url="/";
@@ -41,11 +41,11 @@
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/js/lunr.min.js?1654133685"></script>
-        <script src="/js/auto-complete.js?1654133685"></script>
+        <script src="/js/lunr.min.js?1654133684"></script>
+        <script src="/js/auto-complete.js?1654133684"></script>
         <!-- hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic: -->
         <!-- https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72 -->
-        <script src="/js/search.js?1654133685"></script>
+        <script src="/js/search.js?1654133684"></script>
       </div>
       <div class="highlightable">
         <ul class="topics">
@@ -58,10 +58,10 @@
           <li data-nav-id="/quickstart/clusters/" title="生产环境部署高可用集群版" class="dd-item"><a href="/quickstart/clusters/">生产环境部署高可用集群版<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/quickstart/ibex/" title="告警自愈依赖的脚本下发执行模块" class="dd-item"><a href="/quickstart/ibex/">告警自愈依赖的脚本下发执行模块<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/quickstart/compile/" title="源码编译夜莺前后端及告警自愈模块" class="dd-item"><a href="/quickstart/compile/">源码编译夜莺前后端及告警自愈模块<i class="fas fa-check read-icon"></i></a></li></ul></li>
-          <li data-nav-id="/usage/" title="功能介绍" class="dd-item parent"><a href="/usage/">功能介绍<i class="fas fa-check read-icon"></i></a><ul>
+          <li data-nav-id="/usage/" title="功能介绍" class="dd-item"><a href="/usage/">功能介绍<i class="fas fa-check read-icon"></i></a><ul>
           <li data-nav-id="/usage/grafana/" title="对接Grafana" class="dd-item"><a href="/usage/grafana/">对接Grafana<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/usage/linux/" title="监控Linux" class="dd-item"><a href="/usage/linux/">监控Linux<i class="fas fa-check read-icon"></i></a></li>
-          <li data-nav-id="/usage/windows/" title="监控Windows" class="dd-item active"><a href="/usage/windows/">监控Windows<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/usage/windows/" title="监控Windows" class="dd-item"><a href="/usage/windows/">监控Windows<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/usage/snmp/" title="监控网络设备" class="dd-item"><a href="/usage/snmp/">监控网络设备<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/usage/promapm/" title="埋点监控之PromSDK" class="dd-item"><a href="/usage/promapm/">埋点监控之PromSDK<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/usage/statsd/" title="埋点监控之StatsdSDK" class="dd-item"><a href="/usage/statsd/">埋点监控之StatsdSDK<i class="fas fa-check read-icon"></i></a></li>
@@ -69,10 +69,10 @@
           <li data-nav-id="/usage/mtail/" title="监控日志" class="dd-item"><a href="/usage/mtail/">监控日志<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/usage/mysql/" title="监控MySQL" class="dd-item"><a href="/usage/mysql/">监控MySQL<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/usage/redis/" title="监控Redis" class="dd-item"><a href="/usage/redis/">监控Redis<i class="fas fa-check read-icon"></i></a></li></ul></li>
-          <li data-nav-id="/api/" title="API" class="dd-item"><a href="/api/">API<i class="fas fa-check read-icon"></i></a><ul>
+          <li data-nav-id="/api/" title="API" class="dd-item parent"><a href="/api/">API<i class="fas fa-check read-icon"></i></a><ul>
           <li data-nav-id="/api/read/" title="读取监控数据" class="dd-item"><a href="/api/read/">读取监控数据<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/api/opentsdb/" title="推送监控数据（OpenTSDB协议）" class="dd-item"><a href="/api/opentsdb/">推送监控数据（OpenTSDB协议）<i class="fas fa-check read-icon"></i></a></li>
-          <li data-nav-id="/api/falcon/" title="推送监控数据（OpenFalcon协议）" class="dd-item"><a href="/api/falcon/">推送监控数据（OpenFalcon协议）<i class="fas fa-check read-icon"></i></a></li>
+          <li data-nav-id="/api/falcon/" title="推送监控数据（OpenFalcon协议）" class="dd-item active"><a href="/api/falcon/">推送监控数据（OpenFalcon协议）<i class="fas fa-check read-icon"></i></a></li>
           <li data-nav-id="/api/webapi/" title="调用webapi的接口" class="dd-item"><a href="/api/webapi/">调用webapi的接口<i class="fas fa-check read-icon"></i></a></li></ul></li>
           <li data-nav-id="/grafana-agent/" title="使用Grafana-agent采集监控数据" class="dd-item"><a href="/grafana-agent/">使用Grafana-agent采集监控数据<i class="fas fa-check read-icon"></i></a><ul>
           <li data-nav-id="/grafana-agent/integrations/" title="grafana-agent采集常用exporter" class="dd-item alwaysopen"><a href="/grafana-agent/integrations/">grafana-agent采集常用exporter<i class="fas fa-check read-icon"></i></a><ul>
@@ -125,7 +125,7 @@
       <div class="padding highlightable">
         <div id="top-bar">
           <div id="top-github-link">
-            <a class="github-link" title='Edit this page' href="https://github.com/n9e/n9e.github.io/tree/master/content/usage/windows.md" target="blank">
+            <a class="github-link" title='Edit this page' href="https://github.com/n9e/n9e.github.io/tree/master/content/api/falcon.md" target="blank">
               <i class="fas fa-code-branch"></i>
               <span id="top-github-link-text">Edit this page</span>
             </a>
@@ -140,8 +140,8 @@
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
                 <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">夜莺手册</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/usage/"><span itemprop="name">功能介绍</span></a> > </li>
-                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/usage/windows/" aria-disabled="true"><span itemprop="name">监控Windows</span></a></li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/api/"><span itemprop="name">API</span></a> > </li>
+                <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/api/falcon/" aria-disabled="true"><span itemprop="name">推送监控数据（OpenFalcon协议）</span></a></li>
             </ol>
           </div>
             <div class="progress">
@@ -153,14 +153,39 @@
         <div id="head-tags">
         </div>
         <main id="body-inner">
-          <h1>监控Windows</h1>
+          <h1>推送监控数据（OpenFalcon协议）</h1>
 
-<p>推荐使用 windows_exporter 监控 windows</p>
-<ul>
-<li>部署方式：<a href="https://github.com/prometheus-community/windows_exporter">https://github.com/prometheus-community/windows_exporter</a></li>
-<li>告警规则：<a href="https://github.com/didi/nightingale/blob/main/etc/alerts/windows_by_exporter.json">https://github.com/didi/nightingale/blob/main/etc/alerts/windows_by_exporter.json</a></li>
-<li>监控大盘：<a href="https://github.com/didi/nightingale/blob/main/etc/dashboards/windows_by_exporter.json">https://github.com/didi/nightingale/blob/main/etc/dashboards/windows_by_exporter.json</a></li>
-</ul>
+<p>调用 n9e-server 的 <code>/openfalcon/push</code> 接口，POST 方法，该接口实现了 Open-Falcon 的数据接收协议，监控数据做成 JSON 放到 HTTP Request Body 中，举例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+	{
+		<span style="color:#ff6ac1">&#34;endpoint&#34;</span>: <span style="color:#5af78e">&#34;c3-ceph01.bj&#34;</span>,
+		<span style="color:#ff6ac1">&#34;metric&#34;</span>: <span style="color:#5af78e">&#34;cpu_usage_idle&#34;</span>,
+		<span style="color:#ff6ac1">&#34;timestamp&#34;</span>: <span style="color:#ff9f43">1637732157</span>,
+		<span style="color:#ff6ac1">&#34;tags&#34;</span>: <span style="color:#5af78e">&#34;cpu=cpu-total,region=ali&#34;</span>,
+		<span style="color:#ff6ac1">&#34;value&#34;</span>: <span style="color:#ff9f43">30.5</span>
+	},
+	{
+		<span style="color:#ff6ac1">&#34;endpoint&#34;</span>: <span style="color:#5af78e">&#34;c3-ceph01.bj&#34;</span>,
+		<span style="color:#ff6ac1">&#34;metric&#34;</span>: <span style="color:#5af78e">&#34;cpu_usage_util&#34;</span>,
+		<span style="color:#ff6ac1">&#34;timestamp&#34;</span>: <span style="color:#ff9f43">1637732157</span>,
+		<span style="color:#ff6ac1">&#34;tags&#34;</span>: <span style="color:#5af78e">&#34;cpu=cpu-total,region=ali&#34;</span>,
+		<span style="color:#ff6ac1">&#34;value&#34;</span>: <span style="color:#ff9f43">69.5</span>
+	}
+]
+</code></pre></div><p>显然，JSON 最外层是个数组，如果只上报一条监控数据，也可以不要外面的中括号，直接把对象结构上报：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#ff6ac1">&#34;endpoint&#34;</span>: <span style="color:#5af78e">&#34;c3-ceph01.bj&#34;</span>,
+	<span style="color:#ff6ac1">&#34;metric&#34;</span>: <span style="color:#5af78e">&#34;cpu_usage_idle&#34;</span>,
+	<span style="color:#ff6ac1">&#34;timestamp&#34;</span>: <span style="color:#ff9f43">1637732157</span>,
+	<span style="color:#ff6ac1">&#34;tags&#34;</span>: <span style="color:#5af78e">&#34;cpu=cpu-total,region=ali&#34;</span>,
+	<span style="color:#ff6ac1">&#34;value&#34;</span>: <span style="color:#ff9f43">30.5</span>
+}
+</code></pre></div><p>服务端会看第一个字符是否是<code>[</code>，来判断上报的是数组，还是单个对象，自动做相应的 Decode。如果觉得上报的内容太过占用带宽，也可以做 gzip 压缩，此时上报的数据，要带有<code>Content-Encoding: gzip</code>的 Header。</p>
+
+<div class="notices info">
+    <div class="label">Info</div><p>夜莺中有个监控对象（通常表示设备）的概念，n9e-server 会把 endpoint 字段当做监控对象看待，会自动获取 endpoint 的 value，注册到监控对象的列表里</p>
+
+</div>
 
           <footer class="footline">
           </footer>
@@ -171,25 +196,25 @@
 
       </div>
       <div id="navigation">
-        <a class="nav nav-prev" href="/usage/linux/" title="监控Linux"><i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/usage/snmp/" title="监控网络设备"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/api/opentsdb/" title="推送监控数据（OpenTSDB协议）"><i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/api/webapi/" title="调用webapi的接口"><i class="fa fa-chevron-right"></i></a>
       </div>
     </div>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1654133685"></script>
-    <script src="/js/perfect-scrollbar.min.js?1654133685"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1654133685"></script>
-    <script src="/js/jquery.svg.pan.zoom.js?1654133685"></script>
-    <script src="/js/featherlight.min.js?1654133685"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1654133685"></script>
-    <script src="/js/mermaid.min.js?1654133685"></script>
+    <script src="/js/clipboard.min.js?1654133684"></script>
+    <script src="/js/perfect-scrollbar.min.js?1654133684"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1654133684"></script>
+    <script src="/js/jquery.svg.pan.zoom.js?1654133684"></script>
+    <script src="/js/featherlight.min.js?1654133684"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1654133684"></script>
+    <script src="/js/mermaid.min.js?1654133684"></script>
     <script>
       if (typeof mermaid != 'undefined' && typeof mermaid.mermaidAPI != 'undefined') {
         mermaid.mermaidAPI.initialize( Object.assign( { "securityLevel": "antiscript" }, JSON.parse("{ \"startOnLoad\": true }"), { startOnLoad: false } ) );
       }
     </script>
-    <script src="/js/relearn.js?1654133685"></script>
+    <script src="/js/relearn.js?1654133684"></script>
   </body>
 </html>

@@ -25,6 +25,17 @@
 Info注意 ident 这个标签，ident 是 identity 的缩写，表示设备的唯一标识，如果标签中有 ident 标签，n9e-server 就认为这个监控数据是来自某个机器的，会自动获取 ident 的 value，注册到监控对象的列表里</description>
     </item>
     <item>
+      <title>推送监控数据（OpenFalcon协议）</title>
+      <link>https://n9e.github.io/api/falcon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://n9e.github.io/api/falcon/</guid>
+      <description>调用 n9e-server 的 /openfalcon/push 接口，POST 方法，该接口实现了 Open-Falcon 的数据接收协议，监控数据做成 JSON 放到 HTTP Request Body 中，举例：
+[ { &amp;#34;endpoint&amp;#34;: &amp;#34;c3-ceph01.bj&amp;#34;, &amp;#34;metric&amp;#34;: &amp;#34;cpu_usage_idle&amp;#34;, &amp;#34;timestamp&amp;#34;: 1637732157, &amp;#34;tags&amp;#34;: &amp;#34;cpu=cpu-total,region=ali&amp;#34;, &amp;#34;value&amp;#34;: 30.5 }, { &amp;#34;endpoint&amp;#34;: &amp;#34;c3-ceph01.bj&amp;#34;, &amp;#34;metric&amp;#34;: &amp;#34;cpu_usage_util&amp;#34;, &amp;#34;timestamp&amp;#34;: 1637732157, &amp;#34;tags&amp;#34;: &amp;#34;cpu=cpu-total,region=ali&amp;#34;, &amp;#34;value&amp;#34;: 69.5 } ] 显然，JSON 最外层是个数组，如果只上报一条监控数据，也可以不要外面的中括号，直接把对象结构上报：
+{ &amp;#34;endpoint&amp;#34;: &amp;#34;c3-ceph01.bj&amp;#34;, &amp;#34;metric&amp;#34;: &amp;#34;cpu_usage_idle&amp;#34;, &amp;#34;timestamp&amp;#34;: 1637732157, &amp;#34;tags&amp;#34;: &amp;#34;cpu=cpu-total,region=ali&amp;#34;, &amp;#34;value&amp;#34;: 30.5 } 服务端会看第一个字符是否是[，来判断上报的是数组，还是单个对象，自动做相应的 Decode。如果觉得上报的内容太过占用带宽，也可以做 gzip 压缩，此时上报的数据，要带有Content-Encoding: gzip的 Header。
+Info夜莺中有个监控对象（通常表示设备）的概念，n9e-server 会把 endpoint 字段当做监控对象看待，会自动获取 endpoint 的 value，注册到监控对象的列表里
+ </description>
+    </item>
+    <item>
       <title>调用webapi的接口</title>
       <link>https://n9e.github.io/api/webapi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
