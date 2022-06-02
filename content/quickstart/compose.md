@@ -5,12 +5,12 @@ weight: 1
 
 > 采用Docker Compose做编排，用于单机快速启动环境做测试，包含了MySQL、Redis、Prometheus、Ibex、Nightingale、Telegraf
 
-从[Github](https://github.com/didi/nightingale)下载夜莺的源码，进入docker目录，执行`docker-compose up -d`即可，docker-compose会自动拉取镜像并启动，查看各个容器启动状态，使用命令`docker-compose ps`，都是Up状态则表示启动成功。
+从[Github](https://github.com/didi/nightingale)下载夜莺的源码，进入docker目录，执行`docker compose up -d`即可，docker-compose会自动拉取镜像并启动，查看各个容器启动状态，使用命令`docker compose ps`，都是Up状态则表示启动成功。
 
 ```bash
 $ git clone https://github.com/didi/nightingale.git
 $ cd nightingale/docker
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "docker_nightingale" with driver "bridge"
 Creating mysql      ... done
 Creating redis      ... done
@@ -20,7 +20,7 @@ Creating agentd     ... done
 Creating nwebapi    ... done
 Creating nserver    ... done
 Creating telegraf   ... done
-$ docker-compose ps
+$ docker compose ps
    Name                 Command               State                                   Ports
 ----------------------------------------------------------------------------------------------------------------------------
 agentd       /app/ibex agentd                 Up      10090/tcp, 20090/tcp
